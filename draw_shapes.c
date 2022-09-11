@@ -28,25 +28,25 @@ void print_triangle(int leftCol, int size)
   //end of function
 }
 
-//Prints an arrow of specified height whose left edge is at leftCol
+//Prints an upward pointing arrow 
 void print_arrow(int leftCol, int size)
+//Draws a triangle, which forms the head of the arrow
 {
-  int i, j;
-  int endCol = leftCol + size;
-  //Draws a square, which forms the body of the arrow
-  for (int row = 0; row < size; row++){
-    int col;
-    for (col = 0; col < leftCol; col++) putchar(' ');
-    for (col = 0; col < endCol; col++) putchar('*');
-    putchar('/n');
-  }
-  //Draws a triangle, which becomes the head
-  for(int row = 0; row <= size; row++){
+  for (int row = 0; row <= size; row++){
     int minCol = leftCol + size - row, maxCol = leftCol + size + row;
     int col;
     for (col = 0; col < minCol; col++) putchar(' ');
     for (       ; col <= maxCol; col++) putchar('*');
-    putchar('/n');
+    putchar('\n');
+  }
+  //Draws a rectangle which forms the shaft of the arrow
+  int i, j; 
+  int endCol = leftCol + size;
+  for (int row = 0; row < size; row++){
+    int col;
+    for (col = 0; col < (leftCol+2); col++) putchar(' ');
+    for (col = 0; col < endCol; col++) putchar('*');
+    putchar('\n');
   }
   //end of function 
 }
